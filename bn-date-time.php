@@ -1,0 +1,27 @@
+<?php
+/*
+Plugin Name: Bangla Date and Time
+Plugin URI: http://www.mhmithu.com/
+Description: Simply Convert Date and TIme into Bangla.
+Version: 1.0.1
+Author: m.h.mithu
+Author URI: http://www.mhmithu.com/
+*/
+function bn($mhm)
+{
+	$eng = array('January','February','March','April','May','Jun','July','August','September','October','November','December',
+				 'Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec',
+				 '1','2','3','4','5','6','7','8','9','0',
+				 'am','pm');
+	$bng = array('জানুয়ারি','ফেব্রুয়ারি','মার্চ','এপ্রিল','মে','জুন','জুলাই','আগস্ট','সেপ্টেম্বর','অক্টোবর','নভেম্বর','ডিসেম্বর',
+				 'জানু','ফেব্রু','মার্চ','এপ্রি','মে','জুন','জুলা','আগ','সেপ্টে','অক্টো','নভে','ডিসে',
+				 '১','২','৩','৪','৫','৬','৭','৮','৯','০',
+				 'পূর্বাহ্ণ','অপরাহ্ণ');
+	$con = str_replace($eng, $bng, $mhm);
+	return $con;
+}
+add_filter('the_date', 'bn');
+add_filter('the_time', 'bn');
+add_filter('get_comment_date', 'bn');
+add_filter('get_comment_time', 'bn');
+?>
