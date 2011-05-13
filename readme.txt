@@ -12,7 +12,7 @@ Simply convert english numbers into bangla numbers and english months into bangl
 
 This plugin simply display bangla date and time in comments area and all other date or time into bangla.
 
-Visit [author's site](http://www.mhmithu.com/) for exapmle.
+Visit [author's site](http://www.mhmithu.com/) for example.
 
 
 == Installation ==
