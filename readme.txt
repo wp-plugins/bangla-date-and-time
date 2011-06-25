@@ -2,10 +2,10 @@
 Contributors: m.h.mithu 
 Tags: bangla,date,time,comments,post
 Requires at least: 2.8
-Tested up to: 3.1.2
-Stable tag: 1.0.1
+Tested up to: 3.1.3
+Stable tag: 1.1
 
-Simply convert english numbers into bangla numbers and english months into bangla.
+Bangla Date and Time simply converts english numbers into bangla number including twelve english months name.
 
 
 == Description ==
@@ -29,3 +29,14 @@ See [author's homepage](http://www.mhmithu.com/) for example.
 == Screenshots ==
 
 1. Bangla date and time in comments area
+
+== Changelog ==
+
+= v1.1 (24.06.2011) =
+
+* Bug fixed for month 'June' replacing 'Jun'.
+* Added blank character for 'st', 'nd', 'rd' & 'th'.
+
+= v1.0.1 (11.05.2011) =
+
+* First release.
