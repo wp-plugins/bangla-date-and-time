@@ -3,7 +3,7 @@
 Plugin Name: Bangla Date and Time
 Plugin URI: http://www.mhmithu.com/
 Description: Bangla Date and Time simply converts all english numbers into bangla number including twelve english months name.
-Version: 1.1
+Version: 1.2
 Author: m.h.mithu
 Author URI: http://www.mhmithu.com/
 */
@@ -24,8 +24,11 @@ function bn($mhm)
 	$con = str_replace($eng, $bng, $mhm);
 	return $con;
 }
+add_action('wp_head', function() {
+echo '<meta name="bangla-date-and-time" content="bangla date and time v1.2" />';});
 add_filter('the_date', 'bn');
 add_filter('the_time', 'bn');
+add_filter('comments_number', 'bn');
 add_filter('get_comment_date', 'bn');
 add_filter('get_comment_time', 'bn');
 ?>
