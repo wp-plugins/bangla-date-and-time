@@ -5,7 +5,7 @@ Requires at least: 2.8
 Tested up to: 3.3.1
 Stable tag: 1.3
 
-Bangla Date and Time simply converts date, time and all english numbers into bangla number including name of the seven days and name of the twelve months.
+Bangla Date and Time simply converts date, time and all english numbers into bangla number including name of the seven days and twelve months.
 
 
 == Description ==
@@ -40,7 +40,7 @@ See [author's homepage](http://mithu.info/) for example.
 == Changelog ==
 
 = v1.3 (23.03.2012) =
-* Added `the_views` hook for popular view count plugin 'WP-PostViews' to count in Bangla.
+* Added `the_views` hook for popular view count plugin 'WP-PostViews' to count hit in Bangla.
 
 = v1.2 (12.07.2011) =
 * Added `comments_number` hook for total comments number count

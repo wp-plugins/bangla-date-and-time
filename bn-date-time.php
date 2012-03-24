@@ -25,7 +25,7 @@ function bn($mhm)
 	return $con;
 }
 add_action('wp_head', function() {
-echo '<meta name="bangla-date-and-time" content="bangla date and time v1.3" />';});
+echo '<meta name="mhm" content="bdat 1.3" />';});
 add_filter('the_date', 'bn');
 add_filter('the_time', 'bn');
 add_filter('the_views', 'bn');
