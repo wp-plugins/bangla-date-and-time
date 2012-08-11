@@ -2,8 +2,8 @@
 Contributors: m.h.mithu 
 Tags: bangla,date,time,comments,post
 Requires at least: 2.8
-Tested up to: 3.3.1
-Stable tag: 1.3
+Tested up to: 3.4.1
+Stable tag: 1.4
 
 Bangla Date and Time simply converts date, time and all english numbers into bangla number including name of the seven days and twelve months.
 
@@ -25,7 +25,7 @@ See [author's homepage](http://mithu.info/) for example.
 
 4. Open any of your post and see bangla date and that's it.
 
-5. If you want to show total post hit count, use [WP-PostViews](http://wordpress.org/extend/plugins/wp-postviews/) plugin.
+5. If you want to show total post hit count in Bangla, use [WP-PostViews](http://wordpress.org/extend/plugins/wp-postviews/) plugin.
 
 
 == Screenshots ==
@@ -38,6 +38,10 @@ See [author's homepage](http://mithu.info/) for example.
 
 
 == Changelog ==
+
+= v1.4 (12.08.2012) =
+* Enhance functionality for newer version of wp.
+* Remove ordinal suffix from array for confliction with same strings.
 
 = v1.3 (23.03.2012) =
 * Added `the_views` hook for popular view count plugin 'WP-PostViews' to count hit in Bangla.
