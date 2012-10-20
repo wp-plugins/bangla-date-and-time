@@ -2,15 +2,15 @@
 Contributors: m.h.mithu 
 Tags: bangla,date,time,comments,post
 Requires at least: 2.8
-Tested up to: 3.4.1
-Stable tag: 1.4
+Tested up to: 3.4.2
+Stable tag: 1.5
 
-Bangla Date and Time simply converts date, time and all english numbers into bangla number including name of the seven days and twelve months.
+Bangla Date and Time simply converts date, time and all latin number into bangla number including name of the week days and twelve months.
 
 
 == Description ==
 
-This plugin simply display bangla date and time in comments area and all other date, time or number into bangla including name of the seven days, name of the twelve months, total number of comment count and total or individual post hit count.
+This plugin simply display bangla date and time in comments area and all other date, time or number into bangla including name of the seven week days, name of the twelve months, total number of comment count and total or individual post hit count, bangla page navigation, bangla number into wordpress admin area and show all other latin number into bangla number.
 
 See [author's homepage](http://mithu.info/) for example.
 
@@ -25,7 +25,9 @@ See [author's homepage](http://mithu.info/) for example.
 
 4. Open any of your post and see bangla date and that's it.
 
-5. If you want to show total post hit count in Bangla, use [WP-PostViews](http://wordpress.org/extend/plugins/wp-postviews/) plugin.
+5. If you want to show total post hit count in bangla, use [WP-PostViews](http://wordpress.org/extend/plugins/wp-postviews/) plugin.
+
+6. Use [WP-PageNavi](http://wordpress.org/extend/plugins/wp-pagenavi/) plugin for bangla page navigation.
 
 
 == Screenshots ==
@@ -34,10 +36,18 @@ See [author's homepage](http://mithu.info/) for example.
 
 2. Total comments number count
 
-3. Bangla date and time in comment area
+3. Bangla date and time into comment area
+
+4. Bangla number into page navigation
+
+5. Bangla number into dashboard
 
 
 == Changelog ==
+
+= v1.5 (20.10.2012) =
+* Added support for wp i18n.
+* Display bangla number into admin area.
 
 = v1.4 (12.08.2012) =
 * Enhance functionality for newer version of wp.
