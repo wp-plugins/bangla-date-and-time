@@ -104,7 +104,7 @@ function bangla_month_day( $str )
 	return str_ireplace( $mergeA1, $mergeA2, $str );
 }
 
-	$bdat = '<meta name=\'bangla-date-and-time\' content=\'bdat-v1.4\' />';
+	$bdat = '<meta name=\'bangla-date-and-time\' content=\'bdat-v1.5\' />';
 
 function latin_to_bangla( $int ) {
 
