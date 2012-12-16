@@ -2,8 +2,8 @@
 Contributors: m.h.mithu 
 Tags: bangla,date,time,comments,post
 Requires at least: 2.8
-Tested up to: 3.4.2
-Stable tag: 1.5
+Tested up to: 3.5
+Stable tag: 1.6
 
 Bangla Date and Time simply converts date, time and all latin number into bangla number including name of the week days and twelve months.
 
@@ -44,6 +44,10 @@ See [author's homepage](http://mithu.info/) for example.
 
 
 == Changelog ==
+
+= v1.6 (16.12.2012) =
+* Added localization settings check.
+* Tested compatibility for 3.5.
 
 = v1.5 (20.10.2012) =
 * Added support for wp i18n.
