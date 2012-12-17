@@ -47,7 +47,7 @@ See [author's homepage](http://mithu.info/) for example.
 
 = v1.6 (16.12.2012) =
 * Added localization settings check.
-* Tested compatibility for 3.5.
+* Tested compatibility for WP 3.5
 
 = v1.5 (20.10.2012) =
 * Added support for wp i18n.
