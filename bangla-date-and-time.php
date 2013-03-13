@@ -5,7 +5,7 @@ Plugin URI: http://mithu.info/
 Description: Bangla Date and Time simply converts date, time and all latin numbers into bangla number including twelve english months name.
 Version: 1.6.1
 Author: m.h.mithu
-Author URI: http://mithu.info/
+Author URI: http://mithu.me/
 License: GPLv2 http://www.gnu.org/licenses/gpl-2.0.html
 */
 
