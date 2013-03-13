@@ -12,7 +12,7 @@ Bangla Date and Time simply converts date, time and all latin number into bangla
 
 This plugin simply display bangla date and time in comments area and all other date, time or number into bangla including name of the seven week days, name of the twelve months, total number of comment count and total or individual post hit count, bangla page navigation, bangla number into wordpress admin area and show all other latin number into bangla number.
 
-See [author's homepage](http://mithu.info/) for example.
+See [author's homepage](http://mithu.me/) for example.
 
 
 == Installation ==
