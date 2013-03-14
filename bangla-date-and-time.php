@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Bangla Date and Time
-Plugin URI: http://mithu.info/
+Plugin URI: http://mithu.me/
 Description: Bangla Date and Time simply converts date, time and all latin numbers into bangla number including twelve english months name.
 Version: 1.6.1
 Author: m.h.mithu
