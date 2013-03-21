@@ -1,16 +1,16 @@
 ﻿=== Bangla Date and Time ===
 Contributors: m.h.mithu 
-Tags: bangla,date,time,comments,post
+Tags: bangla,date,time,comments,post,widget,bongabdo
 Requires at least: 2.8
-Tested up to: 3.5
-Stable tag: 1.6.1
+Tested up to: 3.5.1
+Stable tag: 1.7.0
 
-Bangla Date and Time simply converts date, time and all latin number into bangla number including name of the week days and twelve months.
+Bangla Date and Time simply converts date, time and all latin number into bangla number.
 
 
 == Description ==
 
-This plugin simply display bangla date and time in comments area and all other date, time or number into bangla including name of the seven week days, name of the twelve months, total number of comment count and total or individual post hit count, bangla page navigation, bangla number into wordpress admin area and show all other latin number into bangla number.
+This plugin simply display bangla date and time in comments area and all other date, time or number into bangla. Including name of the seven week days, name of the twelve months, total number of comment count and total or individual post hit count, bangla page navigation, bangla date and time widget with bongabdo, bangla number into wordpress admin area and show all other latin number into bangla number.
 
 See [author's homepage](http://mithu.me/) for example.
 
@@ -42,8 +42,14 @@ See [author's homepage](http://mithu.me/) for example.
 
 5. Bangla number into dashboard
 
+6. Bangla date and time widget
+
 
 == Changelog ==
+
+= v1.7.0 (21.03.2013) =
+* Added bangla date and time widget support.
+* Added bangla calendar year (Bongabdo) for widget.
 
 = v1.6.1 (22.12.2012) =
 * Bug fixed.
