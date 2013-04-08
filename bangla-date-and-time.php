@@ -3,7 +3,7 @@
 Plugin Name: Bangla Date and Time
 Plugin URI: http://mithu.me/
 Description: Bangla Date and Time simply converts date, time and all latin numbers into bangla number.
-Version: 1.7.0
+Version: 1.7.1
 Author: m.h.mithu
 Author URI: http://mithu.me/
 License: GPLv2 http://www.gnu.org/licenses/gpl-2.0.html
@@ -104,7 +104,7 @@ function bangla_month_day( $str )
     return str_ireplace( $mergeA1, $mergeA2, $str );
 }
 
-$bdat = '<meta name=\'bangla-date-and-time\' content=\'bdat-v1.7.0\' />';
+$bdat = '<meta name=\'bangla-date-and-time\' content=\'bdat-v1.7.1\' />';
 
 function latin_to_bangla( $int ) {
 
@@ -114,16 +114,26 @@ function latin_to_bangla( $int ) {
     return str_replace( $latDigt, $banDigt, $int );
 }
 
-function widget_bnDate($args) {
-    extract($args);
-    $dtBuffer = @explode(" ", str_replace(",", "", substr(substr(file_get_contents('http://mithu.me/date.php'), 23), 0, -3)));
-    echo $before_widget . $before_title . __("আজকের বাংলা তারিখ") . $after_title;
-    print "<ul><li>আজ $dtBuffer[0], $dtBuffer[1] $dtBuffer[2], $dtBuffer[3]</li><li>$dtBuffer[4] $dtBuffer[5], $dtBuffer[6] $dtBuffer[7]</li><li>এখন সময়, $dtBuffer[8] $dtBuffer[9]</li></ul>";
+function widget_bnDate( $args ) {
+
+    extract( $args );
+
+    $dtBuffer = explode(" ", str_replace(",", "", substr(substr(@file_get_contents('http://mithu.me/date.php'), 23), 0, -3)));
+
+    echo $before_widget . $before_title . __( "আজকের বাংলা তারিখ" ) . $after_title;
+
+    if( $dtBuffer[key( $dtBuffer )] <> NULL ) {
+        print "<ul><li>আজ $dtBuffer[0], $dtBuffer[1] $dtBuffer[2], $dtBuffer[3]</li><li>$dtBuffer[4] $dtBuffer[5], $dtBuffer[6] $dtBuffer[7]</li><li>এখন সময়, $dtBuffer[8] $dtBuffer[9]</li></ul>";
+    }
+    else {
+        print "<ul><li>তারিখ প্রদর্শিত হচ্ছে না! অনুগ্রহ করে পেজটি আবার লোড করুন।</li></ul>";
+    }
+
     echo $after_widget;
 }
 
 function bnDate_init() {
-    register_sidebar_widget(__('আজকের বাংলা তারিখ'), 'widget_bnDate');     
+    register_sidebar_widget(__( 'আজকের বাংলা তারিখ' ), 'widget_bnDate');     
 }
 
     add_filter('the_date', 'bangla_month_day');

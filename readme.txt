@@ -3,16 +3,37 @@ Contributors: m.h.mithu
 Tags: bangla,date,time,comments,post,widget,bongabdo
 Requires at least: 2.8
 Tested up to: 3.5.1
-Stable tag: 1.7.0
+Stable tag: 1.7.1
 
-Bangla Date and Time simply converts date, time and all latin number into bangla number.
+A very useful plugin to convert all Latin number to Bangla number throughout your blog.
 
 
 == Description ==
 
-This plugin simply display bangla date and time in comments area and all other date, time or number into bangla. Including name of the seven week days, name of the twelve months, total number of comment count and total or individual post hit count, bangla page navigation, bangla date and time widget with bongabdo, bangla number into wordpress admin area and show all other latin number into bangla number.
+Bangla Date and Time simply replace all Latin number with Bangla number to your Bangla blog. For that, once you activate the plugin, all the number will be shown in Bangla. Automatically date and time will be changed to Bangla for all posts and comments and also you'll find dashboard numbers in Bangla.
 
-See [author's homepage](http://mithu.me/) for example.
+
+= Why? (Features) =
+
+* Bangla date.
+* Bangla time.
+* Bangla month name.
+* Bangla name of the days.
+* Bangla number into dashboard.
+* Bangla post view/hit count.
+* Bangla page navigation number.
+* Sidebar widget ready with Bongabdo.
+
+= How? (Usage) =
+
+* For post hit count, use [WP-PostViews](http://wordpress.org/extend/plugins/wp-postviews/) plugin.
+* For page navigation, use [WP-PageNavi](http://wordpress.org/extend/plugins/wp-pagenavi/) plugin.
+
+= Who? (Developer) =
+
+* Blog: [mithu.me](http://mithu.me/)
+* E-mail: info@mithu.me
+* Facebook: [m.h.mithu](https://www.facebook.com/m146u)
 
 
 == Installation ==
@@ -25,27 +46,23 @@ See [author's homepage](http://mithu.me/) for example.
 
 4. Open any of your post and see bangla date and that's it.
 
-5. If you want to show total post hit count in bangla, use [WP-PostViews](http://wordpress.org/extend/plugins/wp-postviews/) plugin.
-
-6. Use [WP-PageNavi](http://wordpress.org/extend/plugins/wp-pagenavi/) plugin for bangla page navigation.
-
 
 == Screenshots ==
 
 1. Bangla date, comment count and hit count
 
-2. Total comments number count
+2. Bangla number into page navigation
 
-3. Bangla date and time into comment area
+3. Bangla date and time widget
 
-4. Bangla number into page navigation
-
-5. Bangla number into dashboard
-
-6. Bangla date and time widget
+4. Bangla number into dashboard
 
 
 == Changelog ==
+
+= v1.7.1 (08.04.2013) =
+* Fixed issue of remote contents for widget.
+* Added an error message for remote contents if getting failed.
 
 = v1.7.0 (21.03.2013) =
 * Added bangla date and time widget support.
