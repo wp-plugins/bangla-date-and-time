@@ -1,5 +1,5 @@
 ﻿=== Bangla Date and Time ===
-Contributors: m.h.mithu 
+Contributors: mitcmt 
 Tags: bangla,date,time,comments,post,widget,bongabdo
 Requires at least: 2.8
 Tested up to: 3.5.1
