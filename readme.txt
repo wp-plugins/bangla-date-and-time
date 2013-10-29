@@ -1,9 +1,12 @@
 ﻿=== Bangla Date and Time ===
-Contributors: mitcmt 
+Contributors: mitcmt
+Plugin Site: http://mithu.me/
 Tags: bangla,date,time,comments,post,widget,bongabdo
 Requires at least: 2.8
 Tested up to: 3.5.1
 Stable tag: 1.7.1
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 A very useful plugin to convert all Latin number to Bangla number throughout your blog.
 
