@@ -3,8 +3,8 @@ Contributors: mitcmt
 Plugin Site: http://mithu.me/
 Tags: bangla,date,time,comments,post,widget,bongabdo
 Requires at least: 2.8
-Tested up to: 3.5.1
-Stable tag: 1.7.1
+Tested up to: 3.1.3
+Stable tag: 1.7.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -62,6 +62,11 @@ Bangla Date and Time simply replace all Latin number with Bangla number to your 
 
 
 == Changelog ==
+
+= v1.7.2 (28.11.2013) =
+* Fixed null data for remote contents.
+* Added cURL data scraping support for remote contents.
+* Removed header meta tag.
 
 = v1.7.1 (08.04.2013) =
 * Fixed issue of remote contents for widget.

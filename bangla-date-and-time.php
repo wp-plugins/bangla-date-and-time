@@ -3,8 +3,8 @@
 Plugin Name: Bangla Date and Time
 Plugin URI: http://mithu.me/
 Description: Bangla Date and Time simply converts date, time and all latin numbers into bangla number.
-Version: 1.7.1
-Author: m.h.mithu
+Version: 1.7.2
+Author: M.H.Mithu
 Author URI: http://mithu.me/
 License: GPLv2 http://www.gnu.org/licenses/gpl-2.0.html
 */
@@ -104,8 +104,6 @@ function bangla_month_day( $str )
     return str_ireplace( $mergeA1, $mergeA2, $str );
 }
 
-$bdat = '<meta name=\'bangla-date-and-time\' content=\'bdat-v1.7.1\' />';
-
 function latin_to_bangla( $int ) {
 
     $latDigt = array( 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 );
@@ -114,19 +112,33 @@ function latin_to_bangla( $int ) {
     return str_replace( $latDigt, $banDigt, $int );
 }
 
+function curl_file_get_contents( $url ) {
+
+    $curl = curl_init();
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($curl, CURLOPT_URL, $url);
+    $contents = curl_exec($curl);
+    curl_close($curl);
+
+    if($contents)
+        return $contents;
+    else
+        return false;
+}
+
 function widget_bnDate( $args ) {
 
     extract( $args );
 
-    $dtBuffer = explode(" ", str_replace(",", "", substr(substr(@file_get_contents('http://mithu.me/date.php'), 23), 0, -3)));
+    $dtBuffer = explode(' ', str_replace(',', '', substr(substr(curl_file_get_contents('http://mithu.me/date.php')?@curl_file_get_contents('http://mithu.me/date.php'):@file_get_contents('http://mithu.me/date.php'), 23), 0, -3)));
 
-    echo $before_widget . $before_title . __( "আজকের বাংলা তারিখ" ) . $after_title;
+    echo $before_widget . $before_title . __( 'আজকের বাংলা তারিখ' ) . $after_title;
 
     if( $dtBuffer[key( $dtBuffer )] <> NULL ) {
-        print "<ul><li>আজ $dtBuffer[0], $dtBuffer[1] $dtBuffer[2], $dtBuffer[3]</li><li>$dtBuffer[4] $dtBuffer[5], $dtBuffer[6] $dtBuffer[7]</li><li>এখন সময়, $dtBuffer[8] $dtBuffer[9]</li></ul>";
+        echo "<ul><li>আজ $dtBuffer[0], $dtBuffer[1] $dtBuffer[2], $dtBuffer[3]</li><li>$dtBuffer[4] $dtBuffer[5], $dtBuffer[6] $dtBuffer[7]</li><li>এখন সময়, $dtBuffer[8] $dtBuffer[9]</li></ul>";
     }
     else {
-        print "<ul><li>তারিখ প্রদর্শিত হচ্ছে না! অনুগ্রহ করে পেজটি আবার লোড করুন।</li></ul>";
+        echo "<ul><li>তারিখ প্রদর্শিত হচ্ছে না! অনুগ্রহ করে পেজটি আবার লোড করুন।</li></ul>";
     }
 
     echo $after_widget;
@@ -142,7 +154,6 @@ function bnDate_init() {
     add_filter('get_comment_time', 'bangla_month_day');
     add_filter('date_i18n', 'latin_to_bangla', 10, 2);
     add_filter('number_format_i18n', 'latin_to_bangla', 10, 1);
-    add_action('wp_head', function() { echo $GLOBALS['bdat']; });
     add_action('plugins_loaded', 'bnDate_init');
 
 ?>
