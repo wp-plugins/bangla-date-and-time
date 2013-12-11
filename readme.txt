@@ -1,10 +1,10 @@
 ﻿=== Bangla Date and Time ===
 Contributors: mitcmt
 Plugin Site: http://mithu.me/
-Tags: bangla,date,time,comments,post,widget,bongabdo
+Tags: bangla, date, time, comments, post, widget, bongabdo
 Requires at least: 2.8
 Tested up to: 3.7.1
-Stable tag: 1.7.2
+Stable tag: 1.8.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -35,7 +35,8 @@ Bangla Date and Time simply replace all Latin number with Bangla number to your 
 = Who? (Developer) =
 
 * Blog: [mithu.me](http://mithu.me/)
-* E-mail: info@mithu.me
+* E-mail: mail@mithu.me
+* Twitter: [mhmithu](https://twitter.com/mhmithu)
 * Facebook: [m.h.mithu](https://www.facebook.com/m146u)
 
 
@@ -62,6 +63,10 @@ Bangla Date and Time simply replace all Latin number with Bangla number to your 
 
 
 == Changelog ==
+
+= v1.8.0 (11.12.2013) =
+* Rewrite code to fully OOP way.
+* Tested compatibility up to WP 3.7.1
 
 = v1.7.2 (28.11.2013) =
 * Fixed null data for remote contents.
