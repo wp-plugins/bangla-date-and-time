@@ -3,7 +3,7 @@
 * Plugin Name: Bangla Date and Time
 * Plugin URI: http://mithu.me/
 * Description: Bangla Date and Time simply converts date, time and all latin numbers into bangla number.
-* Version: 1.8.0
+* Version: 1.8.1
 * Author: M.H.Mithu
 * Author URI: http://mithu.me/
 * License: GNU General Public License v2.0 (or newer)
@@ -96,7 +96,7 @@ class Bangla_Date_Time {
 
         extract($args);
 
-        $date = explode(' ', str_replace(',', '', substr(substr($this->curl_file_get_contents('http://mithu.me/date.php') ? @$this->curl_file_get_contents('http://mithu.me/date.php') : @file_get_contents('http://mithu.me/date.php'), 23), 0, -3)));
+        $date = explode(' ', str_replace(',', '', substr(substr($this->curl_file_get_contents('http://sabujswapno.com/date.php') ? @$this->curl_file_get_contents('http://sabujswapno.com/date.php') : @file_get_contents('http://sabujswapno.com/date.php'), 23), 0, -3)));
 
         echo $before_widget . $before_title . __('আজকের বাংলা তারিখ') . $after_title;
 
