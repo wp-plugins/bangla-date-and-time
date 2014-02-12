@@ -3,7 +3,7 @@
 * Plugin Name: Bangla Date and Time
 * Plugin URI: http://mithu.me/
 * Description: Bangla Date and Time simply converts date, time and all latin numbers into bangla number.
-* Version: 1.8.1
+* Version: 1.8.2
 * Author: M.H.Mithu
 * Author URI: http://mithu.me/
 * License: GNU General Public License v2.0 (or newer)
@@ -64,8 +64,8 @@ class Bangla_Date_Time {
 
     public function latin_to_bangla($int) {
 
-        $latDigit = array (0, 1, 2, 3, 4, 5, 6, 7, 8, 9);
-        $banDigit = array ('০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯');
+        $latDigit = range(0, 9);
+        $banDigit = array ('০','১','২','৩','৪','৫','৬','৭','৮','৯');
 
         return str_replace($latDigit, $banDigit, $int);
 
@@ -96,12 +96,17 @@ class Bangla_Date_Time {
 
         extract($args);
 
-        $date = explode(' ', str_replace(',', '', substr(substr($this->curl_file_get_contents('http://sabujswapno.com/date.php') ? @$this->curl_file_get_contents('http://sabujswapno.com/date.php') : @file_get_contents('http://sabujswapno.com/date.php'), 23), 0, -3)));
+        $scraper = $this->curl_file_get_contents('http://api.mithu.me/date/json') ? @$this->curl_file_get_contents('http://api.mithu.me/date/json') : @file_get_contents('http://api.mithu.me/date/json');
+        $scraper = json_decode($scraper);
 
         echo $before_widget . $before_title . __('আজকের বাংলা তারিখ') . $after_title;
 
-        if($date[key($date)] <> NULL) {
-            echo "<ul><li>আজ $date[0], $date[1] $date[2], $date[3]</li><li>$date[4] $date[5], $date[6] $date[7]</li><li>এখন সময়, $date[8] $date[9]</li></ul>";
+        if($scraper) {
+            echo "<ul>
+                    <li>আজ {$scraper->period->weekday}, {$scraper->gregorian->date}{$scraper->gregorian->suffix} {$scraper->gregorian->month}, {$scraper->gregorian->year}</li>
+                    <li>{$scraper->bangla->date}{$scraper->bangla->suffix} {$scraper->bangla->month}, {$scraper->bangla->year} বঙ্গাব্দ</li>
+                    <li>এখন সময়, {$scraper->period->prefix} {$scraper->period->time}</li>
+                </ul>";
         }
         else {
             echo "<ul><li>তারিখ প্রদর্শিত হচ্ছে না! অনুগ্রহ করে পেজটি আবার লোড করুন।</li></ul>";
