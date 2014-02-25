@@ -4,7 +4,7 @@ Plugin Site: http://mithu.me/
 Tags: bangla, date, time, comments, post, widget, bongabdo
 Requires at least: 2.8
 Tested up to: 3.8.1
-Stable tag: 1.8.2
+Stable tag: 1.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -61,6 +61,9 @@ Bangla Date and Time simply replace all Latin number with Bangla number to your 
 
 
 == Changelog ==
+
+= v1.9 (25.02.2014) =
+* Added Bangla Season name into widget.
 
 = v1.8.2 (12.02.2014) =
 * Modified data scraping from Bangla Date Json API.

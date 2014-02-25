@@ -3,7 +3,7 @@
 * Plugin Name: Bangla Date and Time
 * Plugin URI: http://mithu.me/
 * Description: Bangla Date and Time simply converts date, time and all latin numbers into bangla number.
-* Version: 1.8.2
+* Version: 1.9
 * Author: M.H.Mithu
 * Author URI: http://mithu.me/
 * License: GNU General Public License v2.0 (or newer)
@@ -104,7 +104,7 @@ class Bangla_Date_Time {
         if($scraper) {
             echo "<ul>
                     <li>আজ {$scraper->period->weekday}, {$scraper->gregorian->date}{$scraper->gregorian->suffix} {$scraper->gregorian->month}, {$scraper->gregorian->year}</li>
-                    <li>{$scraper->bangla->date}{$scraper->bangla->suffix} {$scraper->bangla->month}, {$scraper->bangla->year} বঙ্গাব্দ</li>
+                    <li>{$scraper->bangla->date}{$scraper->bangla->suffix} {$scraper->bangla->month}, {$scraper->bangla->year} বঙ্গাব্দ ({$scraper->period->season})</li>
                     <li>এখন সময়, {$scraper->period->prefix} {$scraper->period->time}</li>
                 </ul>";
         }
