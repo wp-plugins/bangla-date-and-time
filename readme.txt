@@ -4,7 +4,7 @@ Plugin Site: http://mithu.me/
 Tags: bangla, date, time, comments, post, widget, bongabdo
 Requires at least: 2.8
 Tested up to: 3.8.1
-Stable tag: 1.9
+Stable tag: 1.9.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -62,19 +62,23 @@ Bangla Date and Time simply replace all Latin number with Bangla number to your 
 
 == Changelog ==
 
+= v1.9.1 (27.03.2014) =
+* Added new feature Hijri date into widget.
+* Tested compatibility with WP v3.8.1
+
 = v1.9 (25.02.2014) =
 * Added Bangla Season name into widget.
 
 = v1.8.2 (12.02.2014) =
 * Modified data scraping from Bangla Date Json API.
-* Tested compatibility up to WP 3.8.1
+* Tested compatibility up to WP v3.8.1
 
 = v1.8.1 (17.12.2013) =
 * Changed URL for remote date fetching issue.
 
 = v1.8.0 (11.12.2013) =
 * Rewrite code to fully OOP way.
-* Tested compatibility up to WP 3.7.1
+* Tested compatibility up to WP v3.7.1
 
 = v1.7.2 (28.11.2013) =
 * Fixed null data for remote contents.
@@ -90,11 +94,11 @@ Bangla Date and Time simply replace all Latin number with Bangla number to your 
 * Added bangla calendar year (Bongabdo) for widget.
 
 = v1.6.1 (22.12.2012) =
-* Bug fixed.
+* Fixed bug.
 
 = v1.6 (16.12.2012) =
 * Added localization settings check.
-* Tested compatibility for WP 3.5
+* Tested compatibility for WP v3.5
 
 = v1.5 (20.10.2012) =
 * Added support for wp i18n.
@@ -111,7 +115,7 @@ Bangla Date and Time simply replace all Latin number with Bangla number to your 
 * Added `comments_number` hook for total comments number count
 
 = v1.1 (24.06.2011) =
-* Bug fixed for month 'June' replacing 'Jun'.
+* Fixed bug for month 'June' replacing 'Jun'.
 * Added blank character for 'st', 'nd', 'rd' & 'th'.
 
 = v1.0.1 (11.05.2011) =
