@@ -1,130 +1,154 @@
 <?php
-/*
-* Plugin Name: Bangla Date and Time
-* Plugin URI: http://mithu.me/
-* Description: Bangla Date and Time simply converts date, time and all latin numbers into bangla number.
-* Version: 1.9.1
-* Author: M.H.Mithu
-* Author URI: http://mithu.me/
-* License: GNU General Public License v2.0 (or newer)
-* License URI: http://www.gnu.org/licenses/gpl-2.0.html
-*/
-
-/*  Copyright (C) 2013 M.H.Mithu (Email: mail@mithu.me)
-
-    This program is free software; you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation; either version 2 of the License, or
-    (at your option) any later version.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this program; if not, write to the Free Software
-    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
-*/
-
+/**
+ * Plugin Name: Bangla Date and Time
+ * Plugin URI: https://github.com/mhmithu/bangla-date-and-time
+ * Description: Bangla Date and Time simply converts all date and time into Bangla.
+ * Version: 2.0
+ * Author: Mirazul Hossain Mithu
+ * Author URI: http://mithu.me/
+ * License: GNU General Public License v3.0
+ * License URI: http://www.gnu.org/licenses/gpl-3.0.html
+ *
+ * ----------------------------------------------------------------------
+ * Copyright (C) 2014  Mirazul Hossain Mithu  (email: mail@mithu.me)
+ * ----------------------------------------------------------------------
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * ----------------------------------------------------------------------
+ */
 
 class Bangla_Date_Time {
 
+    public $lib;    # Bangla_Date object library
 
+    /**
+     * Class constructor method
+     * @access public
+     * @return void
+     */
     public function __construct() {
+        // Including Bangla Date class
+        require plugin_dir_path(__FILE__).'class.Bangla_Date.php';
 
-        add_filter('the_date', array($this, 'bangla_month_day'));
-        add_filter('the_time', array($this, 'bangla_month_day'));
-        add_filter('get_comment_date', array($this, 'bangla_month_day'));
-        add_filter('get_comment_time', array($this, 'bangla_month_day'));
-        add_filter('date_i18n', array($this, 'latin_to_bangla'), 10, 2);
-        add_filter('number_format_i18n', array($this, 'latin_to_bangla'), 10, 1);
-        add_action('plugins_loaded', array($this, 'bnDate_init'));
+        // Instantiation of Date class
+        $tz_string = get_option('timezone_string');
+        $timezone  = !empty($tz_string) ? get_option('timezone_string') : date_default_timezone_get();
+        $this->lib = new Bangla_Date(time(), new DateTimeZone($timezone));
 
+        // Passing hooks into constructor method
+        $this->_hooks();
     }
 
-
-    public function bangla_month_day($args) {
-
-        $enMonth = array ('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec');
-        $enDays  = array ('Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Sat', 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri');
-        $bnMonth = array ('জানুয়ারি', 'ফেব্রুয়ারি', 'মার্চ', 'এপ্রিল', 'মে', 'জুন', 'জুলাই', 'আগস্ট', 'সেপ্টেম্বর', 'অক্টোবর', 'নভেম্বর', 'ডিসেম্বর', 'জানু', 'ফেব্রু', 'মার্চ', 'এপ্রি', 'মে', 'জুন', 'জুলা', 'আগ', 'সেপ্টে', 'অক্টো', 'নভে', 'ডিসে');
-        $bnDays  = array ('শনিবার', 'রবিবার', 'সোমবার', 'মঙ্গলবার', 'বুধবার', 'বৃহস্পতিবার', 'শুক্রবার', 'শনি', 'রবি', 'সোম', 'মঙ্গল', 'বুধ', 'বৃহঃ', 'শুক্র');
-
-        $enConv = array_merge($enMonth, $enDays);
-        $bnConv = array_merge($bnMonth, $bnDays);
-
-        array_push($enConv, 'am', 'pm');
-        array_push($bnConv, 'পূর্বাহ্ণ', 'অপরাহ্ণ');
-
-        return str_ireplace($enConv, $bnConv, $args);
-
+    /**
+     * Plugin hooks
+     * @access private
+     * @return void
+     */
+    private function _hooks() {
+        add_filter('date_i18n',          array($this, 'set_month_day'));
+        add_filter('date_i18n',          array($this, 'bangla_number'), 10, 2);
+        add_filter('number_format_i18n', array($this, 'bangla_number'), 10, 1);
+        add_action('plugins_loaded',     array($this, 'register_widget'));        
     }
 
+    /**
+     * Replacing default month, weekday and time strings with Bangla
+     * @access public
+     * @param  string $args
+     * @return string
+     */
+    public function set_month_day($args) {
+        // Parsing data
+        $enml = (array) $this->lib->data->xpath('//long/en/month');
+        $enms = (array) $this->lib->data->xpath('//short/en/month');
+        $bnml = (array) $this->lib->data->xpath('//long/bn/month');
+        $bnms = (array) $this->lib->data->xpath('//short/bn/month');
+        $endl = (array) $this->lib->data->xpath('//en/long/day');
+        $ends = (array) $this->lib->data->xpath('//en/short/day');
+        $bndl = (array) $this->lib->data->xpath('//bn/long/day');
+        $bnds = (array) $this->lib->data->xpath('//bn/short/day');
 
-    public function latin_to_bangla($int) {
+        $en_month = array_merge($enml, $enms);
+        $bn_month = array_merge($bnml, $bnms);
+        $en_days  = array_merge($endl, $ends);
+        $bn_days  = array_merge($bndl, $bnds);
+        $en_array = array_merge($en_month, $en_days);
+        $bn_array = array_merge($bn_month, $bn_days);
 
-        $latDigit = range(0, 9);
-        $banDigit = array ('০','১','২','৩','৪','৫','৬','৭','৮','৯');
+        array_push($en_array, 'am', 'pm');
+        array_push($bn_array, $this->lib->data->timespan->am, $this->lib->data->timespan->pm);
 
-        return str_replace($latDigit, $banDigit, $int);
-
+        return str_ireplace($en_array, $bn_array, $args);
     }
 
-
-    private function curl_file_get_contents($url) {
-
-        $curl = curl_init();
-
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($curl, CURLOPT_URL, $url);
-
-        $contents = curl_exec($curl);
-
-        curl_close($curl);
-
-        if($contents)
-            return $contents;
-
-        else
-            return false;
-
+    /**
+     * Alias method for bangla_digit
+     * @access public
+     * @param  integer $int
+     * @return string
+     */
+    public function bangla_number($int) {
+        return $this->lib->bangla_digit($int);
     }
 
-
-    public function widget_bnDate($args) {
-
+    /**
+     * Sidebar date widget
+     * @access public
+     * @param  array $args
+     * @return string
+     */
+    public function bangla_date_widget($args) {
         extract($args);
+        $widget  = $before_widget . $before_title . __('আজকের বাংলা তারিখ') . $after_title;
+        $widget .= '<ul>';
+        $widget .= '<li>আজ ';
+        $widget .= $this->lib->get_date()->ts['weekday'].', ';
+        $widget .= $this->lib->get_date()->en['date'] . $this->lib->get_date()->en['suffix'].' ';
+        $widget .= $this->lib->get_date()->en['month'].', ';
+        $widget .= $this->lib->get_date()->en['year'];
+        $widget .= '</li>';
+        $widget .= '<li>';
+        $widget .= $this->lib->get_date()->bn['date'] . $this->lib->get_date()->bn['suffix'].' ';
+        $widget .= $this->lib->get_date()->bn['month'].', ';
+        $widget .= $this->lib->get_date()->bn['year'];
+        $widget .= ' বঙ্গাব্দ (' .$this->lib->get_date()->bn['season']. ')';
+        $widget .= '</li>';
+        $widget .= '<li>';
+        $widget .= $this->lib->get_date()->ar['date'] . $this->lib->get_date()->ar['suffix'].' ';
+        $widget .= $this->lib->get_date()->ar['month'].', ';
+        $widget .= $this->lib->get_date()->ar['year'];
+        $widget .= ' হিজরী';
+        $widget .= '</li>';
+        $widget .= '<li>এখন সময়, ';
+        $widget .= $this->lib->get_date()->ts['prefix'].' '.$this->lib->get_date()->ts['time'];
+        $widget .= '</li>';
+        $widget .= '</ul>';
+        $widget .= $after_widget;
 
-        $scraper = $this->curl_file_get_contents('http://api.mithu.me/date/json') ? @$this->curl_file_get_contents('http://api.mithu.me/date/json') : @file_get_contents('http://api.mithu.me/date/json');
-        $scraper = json_decode($scraper);
-
-        echo $before_widget . $before_title . __('আজকের বাংলা তারিখ') . $after_title;
-
-        if($scraper) {
-            echo "<ul>
-                    <li>আজ {$scraper->period->weekday}, {$scraper->gregorian->date}{$scraper->gregorian->suffix} {$scraper->gregorian->month}, {$scraper->gregorian->year}</li>
-                    <li>{$scraper->bangla->date}{$scraper->bangla->suffix} {$scraper->bangla->month}, {$scraper->bangla->year} বঙ্গাব্দ ({$scraper->period->season})</li>
-                    <li>{$scraper->hijri->date}{$scraper->hijri->suffix} {$scraper->hijri->month}, {$scraper->hijri->year} হিজরী</li>
-                    <li>এখন সময়, {$scraper->period->prefix} {$scraper->period->time}</li>
-                </ul>";
-        }
-        else {
-            echo "<ul><li>তারিখ প্রদর্শিত হচ্ছে না! অনুগ্রহ করে পেজটি আবার লোড করুন।</li></ul>";
-        }
-
-        echo $after_widget;
+        echo $widget;
 
     }
 
-
-    public function bnDate_init() {
-        register_sidebar_widget(__('আজকের বাংলা তারিখ'), array($this, 'widget_bnDate'));     
+    /**
+     * Registering sidebar widget
+     * @access public
+     * @return void
+     */
+    public function register_widget() {
+        register_sidebar_widget(__('আজকের বাংলা তারিখ'), array($this, 'bangla_date_widget'));     
     }
 
 
 }
 
 new Bangla_Date_Time;
-
-?>

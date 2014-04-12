@@ -1,19 +1,17 @@
-﻿=== Bangla Date and Time ===
+=== Bangla Date and Time ===
 Contributors: mitcmt
 Plugin Site: http://mithu.me/
-Tags: bangla, date, time, comments, post, widget, bongabdo
+Tags: bangla, date, time, comments, number, navigation, post, widget, bongabdo, hijri, gregorian
 Requires at least: 2.8
-Tested up to: 3.8.1
-Stable tag: 1.9.1
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tested up to: 3.8.2
+Stable tag: 2.0
 
-A very useful plugin to convert all Latin number to Bangla number throughout your blog.
+A very useful plugin to display relevant Bangla date, time and numbers.
 
 
 == Description ==
 
-Bangla Date and Time simply replace all Latin number with Bangla number to your Bangla blog. For that, once you activate the plugin, all the number will be shown in Bangla. Automatically date and time will be changed to Bangla for all posts and comments and also you'll find dashboard numbers in Bangla.
+Bangla Date and Time simply replace all Latin number with Bangla number to your Bangla blog. Once you activate the plugin, all the number will be shown in Bangla. Automatically date and time will be changed to Bangla for all posts and comments and also you'll find dashboard numbers in Bangla.
 
 
 = Why? (Features) =
@@ -25,12 +23,13 @@ Bangla Date and Time simply replace all Latin number with Bangla number to your 
 * Bangla number into dashboard.
 * Bangla post view/hit count.
 * Bangla page navigation number.
-* Sidebar widget ready with Bongabdo.
+* Sidebar widget with Bongabdo and Hijri.
 
 = How? (Usage) =
 
-* For post hit count, use [WP-PostViews](http://wordpress.org/extend/plugins/wp-postviews/) plugin.
-* For page navigation, use [WP-PageNavi](http://wordpress.org/extend/plugins/wp-pagenavi/) plugin.
+* For post hit count, use [WP-PostViews](http://wordpress.org/plugins/wp-postviews/) plugin (Recommend).
+* For page navigation, use [WP-PageNavi](http://wordpress.org/plugins/wp-pagenavi/) plugin (Recommend).
+* Please check [installation tab](http://wordpress.org/plugins/bangla-date-and-time/installation/) for more details.
 
 = Who? (Developer) =
 
@@ -48,6 +47,8 @@ Bangla Date and Time simply replace all Latin number with Bangla number to your 
 
 4. Open any of your post and see bangla date and that's it.
 
+5. To show local time into sidebar, please go to `Settings > General` and set `Timezone` value `Dhaka` or your preferred Timezone. Please note, select your conutry/local name Ex. `Dhaka`. Don't select manual offset like `UTC+6` as Timezone value.
+
 
 == Screenshots ==
 
@@ -62,23 +63,32 @@ Bangla Date and Time simply replace all Latin number with Bangla number to your 
 
 == Changelog ==
 
+= v2.0 (12.04.2014) =
+* Removed remote data scrapper.
+* Added Bangla Date class.
+* Added XML data file.
+* Fixed data fetching failure issue.
+* Rewrite code with readable syntax.
+* Updated license to GPL-3.0
+* Tested compatibility up to WP-3.8.2
+
 = v1.9.1 (27.03.2014) =
 * Added new feature Hijri date into widget.
-* Tested compatibility with WP v3.8.1
+* Tested compatibility with WP-3.8.1
 
 = v1.9 (25.02.2014) =
 * Added Bangla Season name into widget.
 
 = v1.8.2 (12.02.2014) =
 * Modified data scraping from Bangla Date Json API.
-* Tested compatibility up to WP v3.8.1
+* Tested compatibility up to WP-3.8.1
 
 = v1.8.1 (17.12.2013) =
 * Changed URL for remote date fetching issue.
 
 = v1.8.0 (11.12.2013) =
 * Rewrite code to fully OOP way.
-* Tested compatibility up to WP v3.7.1
+* Tested compatibility up to WP-3.7.1
 
 = v1.7.2 (28.11.2013) =
 * Fixed null data for remote contents.
@@ -94,11 +104,11 @@ Bangla Date and Time simply replace all Latin number with Bangla number to your 
 * Added bangla calendar year (Bongabdo) for widget.
 
 = v1.6.1 (22.12.2012) =
-* Fixed bug.
+* Bug fixed.
 
 = v1.6 (16.12.2012) =
 * Added localization settings check.
-* Tested compatibility for WP v3.5
+* Tested compatibility for WP-3.5
 
 = v1.5 (20.10.2012) =
 * Added support for wp i18n.
@@ -106,7 +116,7 @@ Bangla Date and Time simply replace all Latin number with Bangla number to your 
 
 = v1.4 (12.08.2012) =
 * Enhance functionality for newer version of wp.
-* Remove ordinal suffix from array for confliction with same strings.
+* Remove ordinal suffix from array for conflict with same strings.
 
 = v1.3 (23.03.2012) =
 * Added `the_views` hook for popular view count plugin 'WP-PostViews' to count hit in Bangla.
@@ -115,7 +125,7 @@ Bangla Date and Time simply replace all Latin number with Bangla number to your 
 * Added `comments_number` hook for total comments number count
 
 = v1.1 (24.06.2011) =
-* Fixed bug for month 'June' replacing 'Jun'.
+* Bug fixed for month 'June' replacing 'Jun'.
 * Added blank character for 'st', 'nd', 'rd' & 'th'.
 
 = v1.0.1 (11.05.2011) =
