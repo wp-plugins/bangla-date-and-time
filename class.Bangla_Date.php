@@ -27,21 +27,21 @@
 
 class Bangla_Date {
 
-    public $data;                     # XML data object
-    public $stamp;                    # System Unix timestamp
-    public $date_time;                # PHP DateTime object
-    public $is_leapyear;              # Whether leap year or not
-    public $jd_lunation;              # Julian day lunation
-    public $get_year;                 # Year format YYYY
-    public $get_month;                # Month [1 to 12]
-    public $get_date;                 # Date [1 to 31]
-    public $get_hour;                 # Hour [0 to 23]
-    public $get_weekday;              # Weekday [1 to 7]
-    public $set_month;                # Store months
-    public $set_suffix  = array();    # Store ordinal suffix
-    public $set_prefix  = array();    # Store time prefix
-    public $set_weekday = array();    # Store weekdays
-    public $set_season  = array();    # Store seasons
+    protected $data;                     # XML data object
+    protected $stamp;                    # System Unix timestamp
+    protected $date_time;                # PHP DateTime object
+    protected $is_leapyear;              # Whether leap year or not
+    protected $jd_lunation;              # Julian day lunation
+    protected $get_year;                 # Year format YYYY
+    protected $get_month;                # Month [1 to 12]
+    protected $get_date;                 # Date [1 to 31]
+    protected $get_hour;                 # Hour [0 to 23]
+    protected $get_weekday;              # Weekday [1 to 7]
+    protected $set_month;                # Store months
+    protected $set_suffix  = array();    # Store ordinal suffix
+    protected $set_prefix  = array();    # Store time prefix
+    protected $set_weekday = array();    # Store weekdays
+    protected $set_season  = array();    # Store seasons
 
     /**
      * Populating system Timestamp and parsing XML data
@@ -50,8 +50,8 @@ class Bangla_Date {
      * @param  object  $timezone  Default Timezone
      * @return void
      */
-    public function __construct($stamp, $timezone) {
-        $this->date_time = new DateTime(null, $timezone);
+    public function __construct($stamp) {
+        $this->date_time = new DateTime;
         $this->date_time->setTimestamp($stamp);
         $this->_timestamp();
         $this->_xml_data();

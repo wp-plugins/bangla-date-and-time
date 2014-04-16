@@ -1,21 +1,18 @@
 === Bangla Date and Time ===
 Contributors: mitcmt
 Plugin Site: http://mithu.me/
-Tags: bangla, date, time, comments, number, navigation, post, widget, bongabdo, hijri, gregorian
+Tags: bangla, date, time, comments, number, post, widget, bongabdo, hijri, gregorian
 Requires at least: 2.8
 Tested up to: 3.8.2
-Stable tag: 2.0
+Stable tag: 2.0.1
 
-A very useful plugin to display relevant Bangla date, time and numbers.
+A simple but useful plugin to display relevant Bangla date, time and numbers.
 
 
 == Description ==
-
-Bangla Date and Time simply replace all Latin number with Bangla number to your Bangla blog. Once you activate the plugin, all the number will be shown in Bangla. Automatically date and time will be changed to Bangla for all posts and comments and also you'll find dashboard numbers in Bangla.
-
+Bangla Date and Time is simple but effective to display relevant date, times on your website. It replaces all Latin number with Bangla number on every pages. It allows you to show current Bangla, Gregorian and Hijri date to the sidebar widget. Once you activate the plugin, automatically date and time will be changed to Bangla for all posts and comments and also you'll find dashboard numbers in Bangla.
 
 = Why? (Features) =
-
 * Bangla date.
 * Bangla time.
 * Bangla month name.
@@ -26,42 +23,36 @@ Bangla Date and Time simply replace all Latin number with Bangla number to your 
 * Sidebar widget with Bongabdo and Hijri.
 
 = How? (Usage) =
-
 * For post hit count, use [WP-PostViews](http://wordpress.org/plugins/wp-postviews/) plugin (Recommend).
 * For page navigation, use [WP-PageNavi](http://wordpress.org/plugins/wp-pagenavi/) plugin (Recommend).
 * Please check [installation tab](http://wordpress.org/plugins/bangla-date-and-time/installation/) for more details.
 
 = Who? (Developer) =
-
 * Blog: [mithu.me](http://mithu.me/)
 * E-mail: mail@mithu.me
 
 
 == Installation ==
-
 1. Download the Plugin `bangla-date-and-time.zip`
-
 2. Extract zip and upload the plugin in `wp-content/plugins/` directory.
-
 3. Activate the plugin through the plugins menu.
-
 4. Open any of your post and see bangla date and that's it.
-
-5. To show local time into sidebar, please go to `Settings > General` and set `Timezone` value `Dhaka` or your preferred Timezone. Please note, select your conutry/local name Ex. `Dhaka`. Don't select manual offset like `UTC+6` as Timezone value.
+5. To show local time into sidebar, please go to `Settings > General` and set `Timezone` value `Dhaka` or your preferred timezone value.
 
 
 == Screenshots ==
-
 1. Bangla date, comment count and hit count
-
 2. Bangla number into page navigation
-
 3. Bangla date and time widget
-
 4. Bangla number into dashboard
 
 
 == Changelog ==
+
+= v2.0.1 (16.04.2014) =
+* Fixed default timezone issue.
+* Replaced system timestamp with blog deafult.
+* Extended main class from lib class.
 
 = v2.0 (12.04.2014) =
 * Removed remote data scrapper.

@@ -3,7 +3,7 @@
  * Plugin Name: Bangla Date and Time
  * Plugin URI: https://github.com/mhmithu/bangla-date-and-time
  * Description: Bangla Date and Time simply converts all date and time into Bangla.
- * Version: 2.0
+ * Version: 2.0.1
  * Author: Mirazul Hossain Mithu
  * Author URI: http://mithu.me/
  * License: GNU General Public License v3.0
@@ -27,9 +27,9 @@
  * ----------------------------------------------------------------------
  */
 
-class Bangla_Date_Time {
+require plugin_dir_path(__FILE__).'class.Bangla_Date.php';
 
-    public $lib;    # Bangla_Date object library
+class Bangla_Date_Time extends Bangla_Date {
 
     /**
      * Class constructor method
@@ -37,15 +37,7 @@ class Bangla_Date_Time {
      * @return void
      */
     public function __construct() {
-        // Including Bangla Date class
-        require plugin_dir_path(__FILE__).'class.Bangla_Date.php';
-
-        // Instantiation of Date class
-        $tz_string = get_option('timezone_string');
-        $timezone  = !empty($tz_string) ? get_option('timezone_string') : date_default_timezone_get();
-        $this->lib = new Bangla_Date(time(), new DateTimeZone($timezone));
-
-        // Passing hooks into constructor method
+        parent::__construct(current_time('timestamp'));
         $this->_hooks();
     }
 
@@ -68,15 +60,14 @@ class Bangla_Date_Time {
      * @return string
      */
     public function set_month_day($args) {
-        // Parsing data
-        $enml = (array) $this->lib->data->xpath('//long/en/month');
-        $enms = (array) $this->lib->data->xpath('//short/en/month');
-        $bnml = (array) $this->lib->data->xpath('//long/bn/month');
-        $bnms = (array) $this->lib->data->xpath('//short/bn/month');
-        $endl = (array) $this->lib->data->xpath('//en/long/day');
-        $ends = (array) $this->lib->data->xpath('//en/short/day');
-        $bndl = (array) $this->lib->data->xpath('//bn/long/day');
-        $bnds = (array) $this->lib->data->xpath('//bn/short/day');
+        $enml = (array) $this->data->xpath('//long/en/month');
+        $enms = (array) $this->data->xpath('//short/en/month');
+        $bnml = (array) $this->data->xpath('//long/bn/month');
+        $bnms = (array) $this->data->xpath('//short/bn/month');
+        $endl = (array) $this->data->xpath('//en/long/day');
+        $ends = (array) $this->data->xpath('//en/short/day');
+        $bndl = (array) $this->data->xpath('//bn/long/day');
+        $bnds = (array) $this->data->xpath('//bn/short/day');
 
         $en_month = array_merge($enml, $enms);
         $bn_month = array_merge($bnml, $bnms);
@@ -86,7 +77,7 @@ class Bangla_Date_Time {
         $bn_array = array_merge($bn_month, $bn_days);
 
         array_push($en_array, 'am', 'pm');
-        array_push($bn_array, $this->lib->data->timespan->am, $this->lib->data->timespan->pm);
+        array_push($bn_array, $this->data->timespan->am, $this->data->timespan->pm);
 
         return str_ireplace($en_array, $bn_array, $args);
     }
@@ -98,7 +89,7 @@ class Bangla_Date_Time {
      * @return string
      */
     public function bangla_number($int) {
-        return $this->lib->bangla_digit($int);
+        return $this->bangla_digit($int);
     }
 
     /**
@@ -109,28 +100,28 @@ class Bangla_Date_Time {
      */
     public function bangla_date_widget($args) {
         extract($args);
-        $widget  = $before_widget . $before_title . __('আজকের বাংলা তারিখ') . $after_title;
+        $widget  = $before_widget . $before_title . 'আজকের বাংলা তারিখ' . $after_title;
         $widget .= '<ul>';
         $widget .= '<li>আজ ';
-        $widget .= $this->lib->get_date()->ts['weekday'].', ';
-        $widget .= $this->lib->get_date()->en['date'] . $this->lib->get_date()->en['suffix'].' ';
-        $widget .= $this->lib->get_date()->en['month'].', ';
-        $widget .= $this->lib->get_date()->en['year'];
+        $widget .= $this->get_date()->ts['weekday'].', ';
+        $widget .= $this->get_date()->en['date'] . $this->get_date()->en['suffix'].' ';
+        $widget .= $this->get_date()->en['month'].', ';
+        $widget .= $this->get_date()->en['year'];
         $widget .= '</li>';
         $widget .= '<li>';
-        $widget .= $this->lib->get_date()->bn['date'] . $this->lib->get_date()->bn['suffix'].' ';
-        $widget .= $this->lib->get_date()->bn['month'].', ';
-        $widget .= $this->lib->get_date()->bn['year'];
-        $widget .= ' বঙ্গাব্দ (' .$this->lib->get_date()->bn['season']. ')';
+        $widget .= $this->get_date()->bn['date'] . $this->get_date()->bn['suffix'].' ';
+        $widget .= $this->get_date()->bn['month'].', ';
+        $widget .= $this->get_date()->bn['year'];
+        $widget .= ' বঙ্গাব্দ (' .$this->get_date()->bn['season']. ')';
         $widget .= '</li>';
         $widget .= '<li>';
-        $widget .= $this->lib->get_date()->ar['date'] . $this->lib->get_date()->ar['suffix'].' ';
-        $widget .= $this->lib->get_date()->ar['month'].', ';
-        $widget .= $this->lib->get_date()->ar['year'];
+        $widget .= $this->get_date()->ar['date'] . $this->get_date()->ar['suffix'].' ';
+        $widget .= $this->get_date()->ar['month'].', ';
+        $widget .= $this->get_date()->ar['year'];
         $widget .= ' হিজরী';
         $widget .= '</li>';
         $widget .= '<li>এখন সময়, ';
-        $widget .= $this->lib->get_date()->ts['prefix'].' '.$this->lib->get_date()->ts['time'];
+        $widget .= $this->get_date()->ts['prefix'].' '.$this->get_date()->ts['time'];
         $widget .= '</li>';
         $widget .= '</ul>';
         $widget .= $after_widget;
@@ -145,7 +136,7 @@ class Bangla_Date_Time {
      * @return void
      */
     public function register_widget() {
-        register_sidebar_widget(__('আজকের বাংলা তারিখ'), array($this, 'bangla_date_widget'));     
+        register_sidebar_widget('আজকের বাংলা তারিখ', array($this, 'bangla_date_widget'));     
     }
 
 
