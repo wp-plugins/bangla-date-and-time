@@ -3,7 +3,7 @@
  * Plugin Name: Bangla Date and Time
  * Plugin URI: https://github.com/mhmithu/bangla-date-and-time
  * Description: Bangla Date and Time simply converts all date and time into Bangla.
- * Version: 2.0.1
+ * Version: 2.0.2
  * Author: Mirazul Hossain Mithu
  * Author URI: http://mithu.me/
  * License: GNU General Public License v3.0
@@ -60,26 +60,16 @@ class Bangla_Date_Time extends Bangla_Date {
      * @return string
      */
     public function set_month_day($args) {
-        $enml = (array) $this->data->xpath('//long/en/month');
-        $enms = (array) $this->data->xpath('//short/en/month');
-        $bnml = (array) $this->data->xpath('//long/bn/month');
-        $bnms = (array) $this->data->xpath('//short/bn/month');
-        $endl = (array) $this->data->xpath('//en/long/day');
-        $ends = (array) $this->data->xpath('//en/short/day');
-        $bndl = (array) $this->data->xpath('//bn/long/day');
-        $bnds = (array) $this->data->xpath('//bn/short/day');
+        $ml = (array) $this->data->months->en->long;
+        $ms = (array) $this->data->months->en->short;
+        $dl = (array) $this->data->weekday->long;
+        $ds = (array) $this->data->weekday->short;
 
-        $en_month = array_merge($enml, $enms);
-        $bn_month = array_merge($bnml, $bnms);
-        $en_days  = array_merge($endl, $ends);
-        $bn_days  = array_merge($bndl, $bnds);
-        $en_array = array_merge($en_month, $en_days);
-        $bn_array = array_merge($bn_month, $bn_days);
+        $data = array_merge($ml, $ms, $dl, $ds);
+        $data['am'] = $this->data->timespan->am;
+        $data['pm'] = $this->data->timespan->pm;
 
-        array_push($en_array, 'am', 'pm');
-        array_push($bn_array, $this->data->timespan->am, $this->data->timespan->pm);
-
-        return str_ireplace($en_array, $bn_array, $args);
+        return str_ireplace(array_keys($data), array_values($data), $args);
     }
 
     /**

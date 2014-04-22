@@ -85,27 +85,26 @@ class Bangla_Date {
         $xml = simplexml_load_file(plugin_dir_path(__FILE__).'data.xml');
 
         // Parsing data from xml
-        foreach($xml->xpath('//suffix/name') as $suffix)  array_push($this->set_suffix,  (string) $suffix);
-        foreach($xml->xpath('//prefix/name') as $prefix)  array_push($this->set_prefix,  (string) $prefix);
-        foreach($xml->xpath('//bn/long/day') as $weekday) array_push($this->set_weekday, (string) $weekday);
-        foreach($xml->xpath('//season/name') as $season)  array_push($this->set_season,  (string) $season);
+        foreach($xml->xpath('//suffix/name') as $suffix) array_push($this->set_suffix, (string) $suffix);
+        foreach($xml->xpath('//prefix/name') as $prefix) array_push($this->set_prefix, (string) $prefix);
+        foreach($xml->xpath('//season/name') as $season) array_push($this->set_season, (string) $season);
 
         // Parsing simplexml object as array
         $ar = (array) $xml->months->ar;
         $bn = (array) $xml->months->bn;
-        $en = (array) $xml->months->en->long->bn;
 
         // Changing keys
         $ar['ar'] = $ar['month'];
         $bn['bn'] = $bn['month'];
-        $en['en'] = $en['month'];
+        $en['en'] = array_values((array) $xml->months->en->long);
 
         // Unsetting old keys
-        unset($ar['month'], $bn['month'], $en['month']);
+        unset($ar['month'], $bn['month']);
 
         // Exploring properties
         $this->data        = $xml;
         $this->set_month   = array_merge($ar, $bn, $en);
+        $this->set_weekday = array_values((array) $xml->weekday->long);
         $this->jd_lunation = explode(',', (string) $xml->jd_lunation);
     }
 
@@ -542,8 +541,7 @@ class Bangla_Date {
      * @return string
      */
     public function bangla_digit($int) {
-        $digits = explode(',', $this->data->number);
-        return str_replace(range(0, 9), $digits, $int);
+        return str_replace(range(0, 9), explode(',', $this->data->number), $int);
     }
 
     /**

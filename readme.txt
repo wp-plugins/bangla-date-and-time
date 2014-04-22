@@ -3,8 +3,8 @@ Contributors: mitcmt
 Plugin Site: http://mithu.me/
 Tags: bangla, date, time, comments, number, post, widget, bongabdo, hijri, gregorian
 Requires at least: 2.8
-Tested up to: 3.8.2
-Stable tag: 2.0.1
+Tested up to: 3.9
+Stable tag: 2.0.2
 
 A simple but useful plugin to display relevant Bangla date, time and numbers.
 
@@ -48,6 +48,11 @@ Bangla Date and Time is simple but effective to display relevant date, times on 
 
 
 == Changelog ==
+
+= v2.0.2 (22.04.2014) =
+* Updated XML data file.
+* Updated XML related functionalities.
+* Tested compatibility up to WP-3.9.
 
 = v2.0.1 (16.04.2014) =
 * Fixed default timezone issue.

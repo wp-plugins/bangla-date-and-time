@@ -141,46 +141,24 @@
     </prefix>
 
     <weekday>
-        <bn>
-            <long>
-                <day>সোমবার</day>
-                <day>মঙ্গলবার</day>
-                <day>বুধবার</day>
-                <day>বৃহস্পতিবার</day>
-                <day>শুক্রবার</day>
-                <day>শনিবার</day>
-                <day>রবিবার</day>
-            </long>
-            <short>
-                <day>সোম</day>
-                <day>মঙ্গল</day>
-                <day>বুধ</day>
-                <day>বৃহঃ</day>
-                <day>শুক্র</day>
-                <day>শনি</day>
-                <day>রবি</day>
-            </short>
-        </bn>
-        <en>
-            <long>
-                <day>Monday</day>
-                <day>Tuesday</day>
-                <day>Wednesday</day>
-                <day>Thursday</day>
-                <day>Friday</day>
-                <day>Saturday</day>
-                <day>Sunday</day>
-            </long>
-            <short>
-                <day>Mon</day>
-                <day>Tue</day>
-                <day>Wed</day>
-                <day>Thu</day>
-                <day>Fri</day>
-                <day>Sat</day>
-                <day>Sun</day>
-            </short>
-        </en>
+        <long>
+            <Monday>সোমবার</Monday>
+            <Tuesday>মঙ্গলবার</Tuesday>
+            <Wednesday>বুধবার</Wednesday>
+            <Thursday>বৃহস্পতিবার</Thursday>
+            <Friday>শুক্রবার</Friday>
+            <Saturday>শনিবার</Saturday>
+            <Sunday>রবিবার</Sunday>
+        </long>
+        <short>
+            <Mon>সোম</Mon>
+            <Tue>মঙ্গল</Tue>
+            <Wed>বুধ</Wed>
+            <Thu>বৃহঃ</Thu>
+            <Fri>শুক্র</Fri>
+            <Sat>শনি</Sat>
+            <Sun>রবি</Sun>
+        </short>
     </weekday>
 
     <season>
@@ -204,10 +182,10 @@
         <ar>
             <month>মুহররম</month>
             <month>সফর</month>
-            <month>রবিউল আউয়াল</month>
-            <month>রবিউস সানি</month>
-            <month>জমাদিউল আউয়াল</month>
-            <month>জমাদিউস সানি</month>
+            <month>রবিউল-আউয়াল</month>
+            <month>রবিউস-সানি</month>
+            <month>জমাদিউল-আউয়াল</month>
+            <month>জমাদিউস-সানি</month>
             <month>রজব</month>
             <month>শা'বান</month>
             <month>রমজান</month>
@@ -231,64 +209,32 @@
         </bn>
         <en>
             <long>
-                <bn>
-                    <month>জানুয়ারি</month>
-                    <month>ফেব্রুয়ারি</month>
-                    <month>মার্চ</month>
-                    <month>এপ্রিল</month>
-                    <month>মে</month>
-                    <month>জুন</month>
-                    <month>জুলাই</month>
-                    <month>আগস্ট</month>
-                    <month>সেপ্টেম্বর</month>
-                    <month>অক্টোবর</month>
-                    <month>নভেম্বর</month>
-                    <month>ডিসেম্বর</month>
-                </bn>
-                <en>
-                    <month>January</month>
-                    <month>February</month>
-                    <month>March</month>
-                    <month>April</month>
-                    <month>May</month>
-                    <month>June</month>
-                    <month>July</month>
-                    <month>August</month>
-                    <month>September</month>
-                    <month>October</month>
-                    <month>November</month>
-                    <month>December</month>
-                </en>
+                <January>জানুয়ারি</January>
+                <February>ফেব্রুয়ারি</February>
+                <March>মার্চ</March>
+                <April>এপ্রিল</April>
+                <May>মে</May>
+                <June>জুন</June>
+                <July>জুলাই</July>
+                <August>আগস্ট</August>
+                <September>সেপ্টেম্বর</September>
+                <October>অক্টোবর</October>
+                <November>নভেম্বর</November>
+                <December>ডিসেম্বর</December>
             </long>
             <short>
-                <bn>
-                    <month>জানু</month>
-                    <month>ফেব্রু</month>
-                    <month>মার্চ</month>
-                    <month>এপ্রি</month>
-                    <month>মে</month>
-                    <month>জুন</month>
-                    <month>জুলা</month>
-                    <month>আগ</month>
-                    <month>সেপ্টে</month>
-                    <month>অক্টো</month>
-                    <month>নভে</month>
-                    <month>ডিসে</month>
-                </bn>
-                <en>
-                    <month>Jan</month>
-                    <month>Feb</month>
-                    <month>Mar</month>
-                    <month>Apr</month>
-                    <month>May</month>
-                    <month>Jun</month>
-                    <month>Jul</month>
-                    <month>Aug</month>
-                    <month>Sep</month>
-                    <month>Oct</month>
-                    <month>Nov</month>
-                    <month>Dec</month>
-                </en>
+                <Jan>জানু</Jan>
+                <Feb>ফেব্রু</Feb>
+                <Mar>মার্চ</Mar>
+                <Apr>এপ্রি</Apr>
+                <May>মে</May>
+                <Jun>জুন</Jun>
+                <Jul>জুলা</Jul>
+                <Aug>আগ</Aug>
+                <Sep>সেপ্টে</Sep>
+                <Oct>অক্টো</Oct>
+                <Nov>নভে</Nov>
+                <Dec>ডিসে</Dec>
             </short>
         </en>
     </months>
