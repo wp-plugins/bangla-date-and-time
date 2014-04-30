@@ -131,8 +131,8 @@ class Bangla_Date {
         }
 
         // Converting Latin digit to Bangla
-        $date = $this->bangla_digit($this->get_date);
-        $year = $this->bangla_digit($this->get_year);
+        $date = $this->bangla_number($this->get_date);
+        $year = $this->bangla_number($this->get_year);
 
         // Converting ordinal suffix to Bangla
         $suffix = $this->suffix($this->get_date);
@@ -398,8 +398,8 @@ class Bangla_Date {
         $suffix = $this->suffix($date);
 
         // Converting Latin digit to Bangla
-        $date = $this->bangla_digit($date);
-        $year = $this->bangla_digit($year);
+        $date = $this->bangla_number($date);
+        $year = $this->bangla_number($year);
 
         // Returning results as array
         return array(
@@ -448,10 +448,10 @@ class Bangla_Date {
         $id = $mjd - $this->jd_lunation[$k-1];
         $id = $id <= 0 ? 1 : $id;
         // Preparing results
-        $date   = $this->bangla_digit($id);
+        $date   = $this->bangla_number($id);
         $suffix = $this->suffix($id);
         $month  = $this->set_month['ar'][$im-1];
-        $year   = $this->bangla_digit($iy);
+        $year   = $this->bangla_number($iy);
 
         // Returning results as array
         return array(
@@ -502,7 +502,7 @@ class Bangla_Date {
             $prefix = $this->set_prefix[5];
 
         // Converting hour/minute to Bangla according to Timestamp
-        $time = $this->bangla_digit($this->date_time->format('g:i'));
+        $time = $this->bangla_number($this->date_time->format('g:i'));
 
         // Returning results as array
         return array(
@@ -535,12 +535,12 @@ class Bangla_Date {
     }
 
     /**
-     * Converting digits from Latin to Bangla
+     * Converting numbers from Latin to Bangla
      * @access public
      * @param  integer $int
      * @return string
      */
-    public function bangla_digit($int) {
+    public function bangla_number($int) {
         return str_replace(range(0, 9), explode(',', $this->data->number), $int);
     }
 

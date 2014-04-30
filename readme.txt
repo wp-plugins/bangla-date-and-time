@@ -1,12 +1,12 @@
 === Bangla Date and Time ===
 Contributors: mitcmt
 Plugin Site: http://mithu.me/
-Tags: bangla, date, time, comments, number, post, widget, bongabdo, hijri, gregorian
+Tags: bangla, date, time, number, calendar, widget, bongabdo, hijri, gregorian
 Requires at least: 2.8
 Tested up to: 3.9
-Stable tag: 2.0.2
+Stable tag: 2.1
 
-A simple but useful plugin to display relevant Bangla date, time and numbers.
+A simple but useful plugin to display relevant Bangla date, time, calendar and numbers.
 
 
 == Description ==
@@ -15,6 +15,8 @@ Bangla Date and Time is simple but effective to display relevant date, times on 
 = Why? (Features) =
 * Bangla date.
 * Bangla time.
+* Bangla archive.
+* Bangla calendar.
 * Bangla month name.
 * Bangla name of the days.
 * Bangla number into dashboard.
@@ -45,9 +47,20 @@ Bangla Date and Time is simple but effective to display relevant date, times on 
 2. Bangla number into page navigation
 3. Bangla date and time widget
 4. Bangla number into dashboard
+5. Bangla calendar widget
 
 
 == Changelog ==
+
+= v2.1 (30.04.2014) =
+* Added bangla into calender.
+* Added bangla into archive.
+* Added content filtering.
+* Added new filter hook.
+* Added more new methods.
+* Added general functions file.
+* Renamed method `bangla_digit` on base class.
+* Removed `bangla_number` method from clild class.
 
 = v2.0.2 (22.04.2014) =
 * Updated XML data file.

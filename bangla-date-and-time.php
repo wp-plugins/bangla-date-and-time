@@ -3,7 +3,7 @@
  * Plugin Name: Bangla Date and Time
  * Plugin URI: https://github.com/mhmithu/bangla-date-and-time
  * Description: Bangla Date and Time simply converts all date and time into Bangla.
- * Version: 2.0.2
+ * Version: 2.1
  * Author: Mirazul Hossain Mithu
  * Author URI: http://mithu.me/
  * License: GNU General Public License v3.0
@@ -27,9 +27,11 @@
  * ----------------------------------------------------------------------
  */
 
-require plugin_dir_path(__FILE__).'class.Bangla_Date.php';
+require plugin_dir_path(__FILE__).'general-funcs.php';
 
 class Bangla_Date_Time extends Bangla_Date {
+
+    public $merged;
 
     /**
      * Class constructor method
@@ -47,9 +49,12 @@ class Bangla_Date_Time extends Bangla_Date {
      * @return void
      */
     private function _hooks() {
-        add_filter('date_i18n',          array($this, 'set_month_day'));
+        add_filter('wp_list_categories', array($this, 'filter_content'));
+        add_filter('get_archives_link',  array($this, 'filter_content'));
+        add_filter('date_i18n',          array($this, 'set_month_day'), 10, 3);
         add_filter('date_i18n',          array($this, 'bangla_number'), 10, 2);
         add_filter('number_format_i18n', array($this, 'bangla_number'), 10, 1);
+        add_filter('get_calendar',       array($this, 'filter_calendar'));
         add_action('plugins_loaded',     array($this, 'register_widget'));        
     }
 
@@ -65,21 +70,34 @@ class Bangla_Date_Time extends Bangla_Date {
         $dl = (array) $this->data->weekday->long;
         $ds = (array) $this->data->weekday->short;
 
-        $data = array_merge($ml, $ms, $dl, $ds);
-        $data['am'] = $this->data->timespan->am;
-        $data['pm'] = $this->data->timespan->pm;
+        $this->merged = array_merge($ml, $ms, $dl, $ds);
+        $this->merged['am'] = $this->data->timespan->am;
+        $this->merged['pm'] = $this->data->timespan->pm;
 
-        return str_ireplace(array_keys($data), array_values($data), $args);
+        return str_ireplace(array_keys($this->merged), array_values($this->merged), $args);
     }
 
     /**
-     * Alias method for bangla_digit
+     * Refiltering contents for valid markup and URI
      * @access public
-     * @param  integer $int
+     * @param  string $content
      * @return string
      */
-    public function bangla_number($int) {
-        return $this->bangla_digit($int);
+    public function filter_content($content) {
+        $num  = explode(',', $this->data->number);
+        $str  = $this->merged;
+        $data = array_merge($num, $str);
+        unset($data['am'], $data['pm']);
+
+        $filtered = str_replace(array_keys($data), array_values($data), $content);
+
+        preg_match_all('/(https?):\/\/[a-z\d.-]+(\/[^\'"]*)?/i', $filtered, $uris);
+        preg_match_all('/[\'"]([\dp]{1,})[\'"]/u', $filtered, $qots);
+
+        $uri = str_ireplace(array_values($data), array_keys($data), $uris[0]);
+        $qot = str_ireplace(array_values($data), array_keys($data), $qots[0]);
+
+        return str_ireplace(array_merge($uris[0], $qots[0]), array_merge($uri, $qot), $filtered);
     }
 
     /**
@@ -117,7 +135,15 @@ class Bangla_Date_Time extends Bangla_Date {
         $widget .= $after_widget;
 
         echo $widget;
+    }
 
+    /**
+     * Filtering calendars
+     * @access public
+     * @return string
+     */
+    public function filter_calendar() {
+        return $this->filter_content(filter_get_calendar());
     }
 
     /**
