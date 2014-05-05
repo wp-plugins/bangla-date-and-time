@@ -56,7 +56,7 @@ Bangla Date and Time is simple but effective to display relevant date, times on 
 * Rewrite code.
 * Added new class file.
 
-= v2.1 (28.04.2014) =
+= v2.1 (30.04.2014) =
 * Added bangla into calender.
 * Added bangla into archive.
 * Added content filtering.
