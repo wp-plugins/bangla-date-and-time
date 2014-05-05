@@ -1,9 +1,42 @@
 <?php
+/**
+ * @package       Bangla Date and Time
+ * @subpackage    General functions
+ * @author        MH Mithu <mail@mithu.me>
+ * @link          https://github.com/mhmithu
+ * @license       http://www.gnu.org/licenses/gpl-3.0.html
+ *
+ * ----------------------------------------------------------------------
+ * Bangla Date and Time - WordPress Plugin
+ * Copyright (C) 2014  MH Mithu
+ * ----------------------------------------------------------------------
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * ----------------------------------------------------------------------
+ */
 
+// Including class
 if (!class_exists('Bangla_Date'))
     require_once plugin_dir_path(__FILE__).'class.Bangla_Date.php';
 
+// Instantiating the class
+$date = new Bangla_Date;
 
+/**
+ * Modified get_calendar function for preparing contents
+ * @param  boolean $initial
+ * @return string
+ */
 function filter_get_calendar($initial = false) {
     global $wpdb, $m, $monthnum, $year, $wp_locale, $posts;
 
