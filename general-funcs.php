@@ -26,11 +26,8 @@
  */
 
 // Including class
-if (!class_exists('Bangla_Date'))
-    require_once plugin_dir_path(__FILE__).'class.Bangla_Date.php';
-
-// Instantiating the class
-$date = new Bangla_Date;
+if (!class_exists('Date_Widget'))
+    require_once plugin_dir_path(__FILE__).'class.Date_Widget.php';
 
 /**
  * Modified get_calendar function for preparing contents

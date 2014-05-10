@@ -3,8 +3,8 @@ Contributors: mitcmt
 Plugin Site: http://mithu.me/
 Tags: bangla, date, time, number, calendar, widget, bongabdo, hijri, gregorian
 Requires at least: 2.8
-Tested up to: 3.9
-Stable tag: 2.2
+Tested up to: 3.9.1
+Stable tag: 2.3
 
 A simple but useful plugin to display relevant Bangla date, time, calendar and numbers.
 
@@ -52,6 +52,16 @@ Bangla Date and Time is simple but effective to display relevant date, times on 
 
 == Changelog ==
 
+= v2.3 (10.05.2014) =
+* Added widget title rename feature.
+* Added new widget class.
+* Removed method `bangla_date_widget` from `Bangla_date` class.
+* Removed method `register_widget` from `Bangla_date` class.
+* Replaced action hook with new hook for widget.
+* Modified included file on file.
+* Updated more funcionalities.
+* Tested compatibility up to WP-3.9.1
+
 = v2.2 (05.05.2014) =
 * Rewrite code.
 * Added new class file.
@@ -69,7 +79,7 @@ Bangla Date and Time is simple but effective to display relevant date, times on 
 = v2.0.2 (22.04.2014) =
 * Updated XML data file.
 * Updated XML related functionalities.
-* Tested compatibility up to WP-3.9.
+* Tested compatibility up to WP-3.9
 
 = v2.0.1 (16.04.2014) =
 * Fixed default timezone issue.

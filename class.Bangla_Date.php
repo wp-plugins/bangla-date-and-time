@@ -85,58 +85,12 @@ class Bangla_Date extends Date {
     }
 
     /**
-     * Sidebar date widget
-     * @access public
-     * @param  array $args
-     * @return string
-     */
-    public function bangla_date_widget($args) {
-        extract($args);
-        $widget  = $before_widget . $before_title . 'আজকের বাংলা তারিখ' . $after_title;
-        $widget .= '<ul>';
-        $widget .= '<li>আজ ';
-        $widget .= $this->get_date()->ts['weekday'].', ';
-        $widget .= $this->get_date()->en['date'] . $this->get_date()->en['suffix'].' ';
-        $widget .= $this->get_date()->en['month'].', ';
-        $widget .= $this->get_date()->en['year'];
-        $widget .= '</li>';
-        $widget .= '<li>';
-        $widget .= $this->get_date()->bn['date'] . $this->get_date()->bn['suffix'].' ';
-        $widget .= $this->get_date()->bn['month'].', ';
-        $widget .= $this->get_date()->bn['year'];
-        $widget .= ' বঙ্গাব্দ (' .$this->get_date()->bn['season']. ')';
-        $widget .= '</li>';
-        $widget .= '<li>';
-        $widget .= $this->get_date()->ar['date'] . $this->get_date()->ar['suffix'].' ';
-        $widget .= $this->get_date()->ar['month'].', ';
-        $widget .= $this->get_date()->ar['year'];
-        $widget .= ' হিজরী';
-        $widget .= '</li>';
-        $widget .= '<li>এখন সময়, ';
-        $widget .= $this->get_date()->ts['prefix'].' '.$this->get_date()->ts['time'];
-        $widget .= '</li>';
-        $widget .= '</ul>';
-        $widget .= $after_widget;
-
-        echo $widget;
-    }
-
-    /**
      * Filtering calendars
      * @access public
      * @return string
      */
     public function filter_calendar() {
         return $this->filter_content(filter_get_calendar());
-    }
-
-    /**
-     * Registering sidebar widget
-     * @access public
-     * @return void
-     */
-    public function register_widget() {
-        register_sidebar_widget('আজকের বাংলা তারিখ', array($this, 'bangla_date_widget'));     
     }
 
 
