@@ -4,7 +4,7 @@ Plugin Site: http://mithu.me/
 Tags: bangla, date, time, number, calendar, widget, bongabdo, hijri, gregorian
 Requires at least: 2.8
 Tested up to: 3.9.1
-Stable tag: 2.4.1
+Stable tag: 2.4.2
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -53,6 +53,9 @@ Bangla Date and Time is simple but effective to display relevant date, times on 
 
 
 == Changelog ==
+
+= v2.4.2 (30.06.2014) =
+* Modified Hijri calendar date to current.
 
 = v2.4.1 (25.05.2014) =
 * Added weekday name hiding feature into widget.
