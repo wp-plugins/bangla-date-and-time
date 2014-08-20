@@ -418,7 +418,7 @@ class Date {
     */
     private function hijri(){
         $date = new DateTime;
-        $date->setTimestamp($this->stamp - 64800); // 6-24
+        $date->setTimestamp($this->stamp + 21600); // 6
         // Year, Month, Day
         $y = $date->format('Y');
         $m = $date->format('m');

@@ -3,7 +3,7 @@
  * Plugin Name: Bangla Date and Time
  * Plugin URI: https://github.com/mhmithu/bangla-date-and-time
  * Description: Bangla Date and Time simply converts all date and time into Bangla.
- * Version: 2.4.2
+ * Version: 2.4.3
  * Author: MH Mithu
  * Author URI: http://mithu.me/
  * License: GNU General Public License v3.0
