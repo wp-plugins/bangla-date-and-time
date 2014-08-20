@@ -177,4 +177,4 @@ Bangla Date and Time is simple but effective to display relevant date, times on 
 * Added blank character for 'st', 'nd', 'rd' & 'th'.
 
 = v1.0.1 (11.05.2011) =
-* First release.
+* Initial release.
