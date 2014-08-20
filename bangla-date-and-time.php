@@ -5,7 +5,7 @@
  * Description: Bangla Date and Time simply converts all date and time into Bangla.
  * Version: 2.4.3
  * Author: MH Mithu
- * Author URI: http://mithu.me/
+ * Author URI: http://mithu.me
  * License: GNU General Public License v3.0
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
  *
