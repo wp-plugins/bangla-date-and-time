@@ -54,9 +54,9 @@ Bangla Date and Time is simple but effective to display relevant date, times on 
 
 == Changelog ==
 
-= v2.4.3 (20.08.2014) =
-* Modified Hijri calendar date for month `Shawwal`.
-* Tested compatibility up to WP-3.9.2
+= v2.4.3 (27.09.2014) =
+* Modified Hijri calendar date.
+* Tested compatibility.
 
 = v2.4.2 (30.06.2014) =
 * Modified Hijri calendar date to current.

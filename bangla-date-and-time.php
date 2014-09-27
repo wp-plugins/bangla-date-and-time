@@ -10,7 +10,7 @@
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
  *
  * ----------------------------------------------------------------------
- * Copyright (C) 2014  MH Mithu  (email: mail@mithu.me)
+ * Copyright (C) 2014  MH Mithu  (email: mail@mithu.me) 
  * ----------------------------------------------------------------------
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
