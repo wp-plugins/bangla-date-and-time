@@ -1,10 +1,10 @@
 === Bangla Date and Time ===
 Contributors: mitcmt
-Plugin Site: http://mithu.me/
+Plugin Site: http://mithu.me
 Tags: bangla, date, time, number, calendar, widget, bongabdo, hijri, gregorian
 Requires at least: 2.8
-Tested up to: 3.9.1
-Stable tag: 2.4.2
+Tested up to: 3.9.2
+Stable tag: 2.4.3
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -32,7 +32,7 @@ Bangla Date and Time is simple but effective to display relevant date, times on 
 * Please check [installation tab](http://wordpress.org/plugins/bangla-date-and-time/installation/) for more details.
 
 = Who? (Developer) =
-* Blog: [mithu.me](http://mithu.me/)
+* Blog: [mithu.me](http://mithu.me)
 * E-mail: mail@mithu.me
 
 
@@ -53,6 +53,10 @@ Bangla Date and Time is simple but effective to display relevant date, times on 
 
 
 == Changelog ==
+
+= v2.4.3 (27.09.2014) =
+* Modified Hijri calendar date.
+* Tested compatibility.
 
 = v2.4.2 (30.06.2014) =
 * Modified Hijri calendar date to current.
@@ -173,4 +177,4 @@ Bangla Date and Time is simple but effective to display relevant date, times on 
 * Added blank character for 'st', 'nd', 'rd' & 'th'.
 
 = v1.0.1 (11.05.2011) =
-* First release.
+* Initial release.
