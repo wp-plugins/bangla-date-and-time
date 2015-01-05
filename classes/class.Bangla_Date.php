@@ -69,7 +69,7 @@ class Bangla_Date extends Date {
      */
     public function filter_content($content) {
         $num  = explode(',', $this->data->number);
-        $str  = $this->merged;
+        $str  = (array) $this->merged;
         $data = array_merge($num, $str);
         unset($data['am'], $data['pm']);
 
